@@ -1,10 +1,11 @@
-﻿using Tyuiu.SaigafarovBI.Sprint4.Task1.V11.Lib;
-namespace Tyuiu.SaigafarovBI.Sprint4.Task1.V11
+﻿using Tyuiu.SaigafarovBI.Sprint4.Task2.V17.Lib;
+namespace Tyuiu.SaigafarovBI.Sprint4.Task2.V17
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Random rnd = new Random();
             DataService dataService = new DataService();
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
@@ -16,23 +17,20 @@ namespace Tyuiu.SaigafarovBI.Sprint4.Task1.V11
 
             for (int i = 0; i <= len - 1; ++i)
             {
-                Console.Write("Введите значение " + i + " элемента массива: ");
-                numsArray[i] = Convert.ToInt32(Console.ReadLine());
+                numsArray[i] = rnd.Next(3, 9);
             }
-            Console.WriteLine();
             Console.WriteLine("Массив: ");
-            for (int i=0; i<=len-1;i++)
+            for (int i = 0; i <= len - 1; i++)
             {
                 Console.Write(numsArray[i] + "\t");
             }
-            Console.WriteLine();
             Console.WriteLine();
 
             Console.WriteLine("***************************************************************************");
             Console.WriteLine("* РЕЗУЛЬТАТ:                                                              *");
             Console.WriteLine("***************************************************************************");
 
-            Console.WriteLine(dataService.Calculate(numsArray));
+            Console.WriteLine("Произведение нечетных элементов массива = "+dataService.Calculate(numsArray));
 
             Console.ReadKey();
         }
